@@ -11,12 +11,14 @@ import { PageModule } from './pages/pages.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
-
+import { IncrementadorComponent } from './components/incrementador/incrementador.component';
+ 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent
+    
   ],
   imports: [
     BrowserModule,
