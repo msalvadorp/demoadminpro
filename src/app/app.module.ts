@@ -7,11 +7,15 @@ import { APP_ROUTES } from './app.routes';
 //Module
 import { PageModule } from './pages/pages.module';
 
+//servicios
+import { SettingsService } from './services/settings.service';
+
 //Compontentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 import { IncrementadorComponent } from './components/incrementador/incrementador.component';
+
  
 @NgModule({
   declarations: [
@@ -25,7 +29,7 @@ import { IncrementadorComponent } from './components/incrementador/incrementador
     APP_ROUTES,
     PageModule
   ],
-  providers: [],
+  providers: [SettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
