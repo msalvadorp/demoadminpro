@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 
 @Injectable()
 export class SettingsService {
 
   ajustes: Ajustes = {
-    temaUrl : "assets/css/colors/default.css",
-    tema : "default"
+    temaUrl : "assets/css/colors/default-dark.css",
+    tema : "default-dark"
   }
-  constructor() { 
+  constructor(@Inject(DOCUMENT) private _document) { 
     this.cargarAjustes()
 
   }
@@ -21,11 +22,22 @@ export class SettingsService {
     if(localStorage.getItem("ajustes")){
       console.log("Cargando de localstorage")
       this.ajustes = JSON.parse(localStorage.getItem("ajustes"))
+      this.aplicarTema(this.ajustes.tema)
     }
     else {
       console.log("Asignando valores por defecto")
 
     }
+  }
+
+  aplicarTema(tema: string){
+    let url = `assets/css/colors/${tema}.css`
+    this._document.getElementById("temaPrincipal").setAttribute("href", url)
+
+    this.ajustes.tema = tema
+    this.ajustes.temaUrl = url
+    this.guardarAjustes()
+
   }
 }
 

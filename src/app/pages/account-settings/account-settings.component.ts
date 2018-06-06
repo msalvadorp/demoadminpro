@@ -10,22 +10,17 @@ import { utils } from 'protractor';
 })
 export class AccountSettingsComponent implements OnInit {
 
-  constructor(@Inject(DOCUMENT) private _document,
+  constructor(
     public _ajustes : SettingsService) { }
 
   ngOnInit() {
-
+    this.colocarCheck()
   }
 
   cambiarTema(tema: string, link: any){
 
     this.aplicarCheck(link)
-    let url = `assets/css/colors/${tema}.css`
-    this._document.getElementById("temaPrincipal").setAttribute("href", url)
-
-    this._ajustes.ajustes.tema = tema
-    this._ajustes.ajustes.temaUrl = url
-    this._ajustes.guardarAjustes()
+   this._ajustes.aplicarTema(tema)
   }
 
   aplicarCheck(link: any){
@@ -34,5 +29,18 @@ export class AccountSettingsComponent implements OnInit {
       ref.classList.remove("working")
     }
     link.classList.add("working")
+  }
+
+  colocarCheck(){
+    let selectores : any = document.getElementsByClassName("selector")
+    let tema = this._ajustes.ajustes.tema
+
+    for (let ref of selectores) {
+      if (ref.getAttribute("data-theme")=== tema){
+        ref.classList.add("working")
+        break
+      }
+      //ref.classList.remove("working")
+    }
   }
 }
