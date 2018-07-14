@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 import { IncrementadorComponent } from './components/incrementador/incrementador.component';
+import { FormsModule } from '@angular/forms';
 
 
  
@@ -30,7 +31,7 @@ import { IncrementadorComponent } from './components/incrementador/incrementador
     BrowserModule,
     APP_ROUTES,
     PageModule,
-    ServiceModule
+    ServiceModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
