@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   }
 
   ingresar(){
-this.router.navigate(['dashboard'])
+    this.router.navigate(['dashboard'])
     
   }
 }

@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 import { IncrementadorComponent } from './components/incrementador/incrementador.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
  
@@ -31,7 +31,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     APP_ROUTES,
     PageModule,
-    ServiceModule, FormsModule
+    ServiceModule, 
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
